@@ -5,52 +5,59 @@ body {
     padding: 0;
     background-color: #f9f9f9;
     color: #333;
-    display: flex;
     height: 100vh;
-    overflow: hidden;
 }
 
 .container {
     display: flex;
     width: 100%;
+    height: 100%;
 }
 
 /* Sidebar */
 .sidebar {
-    background-color: #222;
+    background-color: #1b1f23;
     color: #fff;
     width: 250px;
-    padding: 1rem;
+    padding: 0 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start; /* Alignement des éléments en haut */
-    height: 100vh;
+    justify-content: space-between;
+    position: static;
 }
+
+.copyright {
+    font-size: 0.8rem;
+    color: #ccc;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto; /* Pour forcer le texte à rester en bas */
+}
+
 
 .logo {
     width: 100px;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .logo img {
     margin-bottom: 1rem;
 }
 
-/* Titre du site en dehors de la div .logo */
 .site-title {
     margin-bottom: 2rem;
-    font-size: 1.2rem;
-    margin-top: 0;
+    font-size: 1.5rem;
     text-align: center;
 }
 
 .search-bar {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.75rem;
     margin-bottom: 2rem;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .course-list ul {
@@ -60,54 +67,60 @@ body {
 }
 
 .course-list ul li {
-    margin: 0.5rem 0;
+    margin: 0.75rem 0;
 }
 
 .course-list ul li a {
     color: #fff;
     text-decoration: none;
     display: block;
-    padding: 0.5rem;
-    border-radius: 4px;
+    padding: 0.75rem;
+    border-radius: 6px;
+    transition: background-color 0.3s;
 }
 
 .course-list ul li a:hover {
-    background-color: #00796b;
+    background-color: #2a9d8f;
 }
 
 .content {
     flex: 1;
-    padding: 2rem;
+    padding: 2.5rem;
     overflow-y: auto;
+    background-color: #ffffff;
 }
 
+/* Cartes */
 .card {
-    background: #fff;
-    padding: 1rem;
+    background: #ffffff;
+    padding: 1.5rem;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     margin: 1rem 0;
     max-width: 600px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card:hover {
-    transform: scale(1.02);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .btn {
     display: inline-block;
     padding: 0.75rem 1.5rem;
-    background-color: #00796b;
+    background-color: #2a9d8f;
     color: #fff;
     border-radius: 5px;
     text-decoration: none;
     margin-top: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .btn:hover {
-    background-color: #004d40;
+    background-color: #21867a;
+    transform: scale(1.05);
 }
 
 /* Copyright en bas de la navbar */
@@ -152,17 +165,24 @@ body {
 }
 
 .sub-navigation ul li {
-    margin: 1rem 0;
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
 }
 
 .sub-navigation ul li a {
     color: #333;
     text-decoration: none;
+    display: block;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
 }
 
 .sub-navigation ul li a:hover {
+    background-color: #e0e0e0;
     color: #00796b;
 }
+
 
 /* Styles pour le contenu des articles */
 article {
@@ -210,4 +230,83 @@ code {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Styles pour les formulaires */
+.form-title {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00796b; /* Couleur personnalisée pour le titre */
+}
+
+form {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+form input[type="text"],
+form input[type="password"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+}
+
+form textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+form button {
+    padding: 12px 20px;
+    background-color: #2a9d8f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+form button:hover {
+    background-color: #21867a;
+    transform: scale(1.05);
+}
+
+/* Styles pour les messages de succès ou d'erreur */
+.success-message, .error-message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
 
