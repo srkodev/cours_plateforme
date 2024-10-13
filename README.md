@@ -30,5 +30,5 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur 
 - **Apache** ou **Nginx**
 
 
-#PS 
+## Ps
 Merci de retirer le scripte sql après l'avoir executé
