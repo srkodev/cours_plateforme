@@ -14,6 +14,83 @@ body {
     height: 100%;
 }
 
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.hamburger-menu .bar {
+    width: 30px;
+    height: 4px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* Cacher la navigation mobile par défaut */
+.mobile-nav {
+    display: none;
+}
+
+/* Styles spécifiques pour les petits écrans */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .sidebar {
+        display: none !important; /* Sidebar cachée en mode mobile */
+    }
+
+    .mobile-nav {
+        display: none; /* Masqué par défaut */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #1b1f23;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .mobile-nav.active {
+        display: flex;
+        transform: translateY(0); /* Affiche la navigation mobile */
+    }
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.mobile-nav ul li {
+    margin: 1rem 0;
+}
+
+.mobile-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.mobile-nav ul li a:hover {
+    color: #2a9d8f;
+}
+
 /* Sidebar */
 .sidebar {
     background-color: #1b1f23;
@@ -24,17 +101,17 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    position: static;
+    transition: none;
 }
 
+/* Copyright */
 .copyright {
     font-size: 0.8rem;
     color: #ccc;
     text-align: center;
     padding: 1rem;
-    margin-top: auto; /* Pour forcer le texte à rester en bas */
+    margin-top: auto;
 }
-
 
 .logo {
     width: 100px;
@@ -143,6 +220,7 @@ body {
     border-right: 1px solid #ccc;
 }
 
+/* Bouton retour */
 .back-btn {
     background-color: #00796b;
     color: white;
@@ -150,13 +228,44 @@ body {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    text-align: center;
     margin-bottom: 2rem;
     margin-top: 1rem;
-    text-align: center;
 }
 
 .back-btn:hover {
     background-color: #004d40;
+}
+
+/* Media query pour petits écrans */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Réorganise la structure en colonne */
+    }
+
+    .sidebar-light {
+        width: 100%; /* Sidebar devient pleine largeur */
+        height: auto;
+        padding: 1rem;
+        border-right: none; /* Pas de bordure */
+        border-bottom: 1px solid #ccc; /* Séparation horizontale */
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .back-btn {
+        margin: 0; /* Supprimer la marge du bouton pour l'aligner en haut */
+    }
+
+    .sub-navigation {
+        display: none; /* Cache la navigation sur petits écrans */
+    }
+
+    .content {
+        padding: 1rem; /* Réduit la marge pour les petits écrans */
+    }
 }
 
 .sub-navigation ul {
@@ -183,7 +292,6 @@ body {
     color: #00796b;
 }
 
-
 /* Styles pour le contenu des articles */
 article {
     max-width: 800px;
@@ -199,7 +307,7 @@ h1 {
 
 h2 {
     font-size: 1.75rem;
-    margin-top: 2rem;
+    margin-top: 3.2rem;
     margin-bottom: 1rem;
 }
 
@@ -309,4 +417,3 @@ form button:hover {
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
-

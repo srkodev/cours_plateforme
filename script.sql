@@ -6,7 +6,7 @@ CREATE DATABASE IF NOT EXISTS cours_plateforme;
 CREATE USER 'cours'@'localhost' IDENTIFIED BY 'cours';
 
 -- Accorder tous les privilèges à cet utilisateur sur la base de données
-GRANT ALL PRIVILEGES ON cours_plateforme.* TO 'nom_utilisateur'@'localhost';
+GRANT ALL PRIVILEGES ON cours_plateforme.* TO 'cours'@'localhost';
 
 -- Appliquer les changements de privilèges
 FLUSH PRIVILEGES;

@@ -32,7 +32,7 @@ $sections = $matches[1];
 <body>
     <div class="container">
         <aside class="sidebar-light">
-        <button onclick="window.location.href='../index.php'" class="back-btn">← Retour</button>
+            <button onclick="window.location.href='../index.php'" class="back-btn">← Retour</button>
             <nav class="sub-navigation">
                 <ul>
                     <?php foreach ($sections as $index => $section): ?>

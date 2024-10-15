@@ -1,6 +1,11 @@
 <?php
 function afficher_header() {
     echo '
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
         <aside class="sidebar">
             <div class="logo">
                 <img src="/image/vosoft_logo.svg" alt="Logo" width="100">
@@ -10,7 +15,7 @@ function afficher_header() {
             <nav class="course-list">
                 <ul>
                     <li><a href="/index.php">Accueil</a></li>';
-                
+                    
                     // Récupérer les matières pour les afficher dans la sidebar
                     $stmt = $GLOBALS['conn']->prepare("SELECT nom, slug FROM matieres");
                     $stmt->execute();
@@ -24,6 +29,18 @@ function afficher_header() {
             <div class="copyright">
                 © 2024 - Tous droits réservés - Jules Crevoisier
             </div>
-        </aside>';
+        </aside>
+
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="/index.php">Accueil</a></li>';
+                
+                    // Récupérer les matières pour les afficher dans la navigation mobile
+                    foreach ($matieres as $matiere) {
+                        echo '<li><a href="/cours/matiere.php?slug=' . htmlspecialchars($matiere['slug']) . '">' . htmlspecialchars($matiere['nom']) . '</a></li>';
+                    }
+                    
+    echo '      </ul>
+        </nav>';
 }
 ?>

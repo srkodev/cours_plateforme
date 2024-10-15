@@ -59,5 +59,6 @@ $isAdmin = isset($_SESSION['role']) && $_SESSION['role'] === 'admin';
 
     <script src="/js/scripte.js"></script>
     <script src="/js/defilement.js"></script>
+    <script src="/js/hamburger.js"></script>
 </body>
 </html>
